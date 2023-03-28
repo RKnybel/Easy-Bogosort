@@ -1,18 +1,21 @@
 // Easy Bogosort
 // Riley Knybel
 
+// It would be easier to learn algorithms like this.
+
 #include <iostream>
 #include <vector>
 #include <random>
 #include <chrono>
 #include <numeric>
 
+// could be a void with a pointer argument but I am lazy
 std::vector<int> bogosort(std::vector<int> unsorted_list) {
     std::random_device rd;     // initialize engine
     std::mt19937 rng(rd());    //Mersenne-Twister rng algorithm
 
-    while (!std::is_sorted(unsorted_list.begin(), unsorted_list.end()))
-        std::shuffle(std::begin(unsorted_list), std::end(unsorted_list), rng);
+    while (!std::is_sorted(unsorted_list.begin(), unsorted_list.end())) // sorted() in paper
+        std::shuffle(std::begin(unsorted_list), std::end(unsorted_list), rng); //applyRandomAction() in paper
 
     return unsorted_list;
 }
